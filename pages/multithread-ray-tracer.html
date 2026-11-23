@@ -1,0 +1,27 @@
+<section class="project-detail">
+  <P>Ray Tracing in One Weekend plus Multithreading practice.</P>
+  <figure>
+    <img class="ray-tracer-render" src="assets/graphics/ce3a11968dbb_render_run1.png" alt="Rendered scene produced by the multithreaded ray tracer">
+  </figure>
+
+  <div class="benchmark-table-wrap">
+    <table class="benchmark-table">
+      <thead>
+        <tr>
+          <th scope="col">Branch</th>
+          <th scope="col">Mean</th>
+          <th scope="col">Median</th>
+          <th scope="col">Std. dev.</th>
+          <th scope="col">Min</th>
+          <th scope="col">Max</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">main</th><td>68.43716</td><td>68.2869</td><td>0.295201</td><td>68.2553</td><td>68.9533</td></tr>
+        <tr><th scope="row">thread_per_row</th><td>17.19172</td><td>17.2261</td><td>0.097641</td><td>17.0503</td><td>17.2882</td></tr>
+        <tr><th scope="row">thread_row_worker</th><td>17.64708</td><td>17.6067</td><td>0.157869</td><td>17.4743</td><td>17.8752</td></tr>
+        <tr><th scope="row">thread_tile_worker</th><td>17.45836</td><td>17.4793</td><td>0.134127</td><td>17.2719</td><td>17.6047</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>

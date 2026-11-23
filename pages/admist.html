@@ -1,0 +1,39 @@
+<section class="project-detail">
+  <p>Oct 2026, Prototype</p>
+  <p>A short interactive exploring a method of narrative, with visuals inspired by La Pêche by Dewing (among others).</p>
+
+  <figure>
+    <video class="centered" controls playsinline preload="auto" aria-label="Admist gameplay video">
+      <source src="assets/games/Amidst.mp4" type="video/mp4">
+      Your browser does not support the video element.
+    </video>
+  </figure>
+
+  <h3>Kuwahara Blit Shader</h3>
+  <div class="text-media">
+    <div>
+      <p>The shader used is the Kuwahara filter with some modifications.</p>
+      <p>The Kuwahara is a denoising filter that has the unintended effect of creating a painterly aesthetic. For each fragment, the shader create sectors(kernels) around the fragment and calculate each of their average color and variance. Then, the fragment is set to the average color of the kernel with the lowest variance.</p>
+      <p>In other words, the fragment adopts the average color of the most uniformed kernel, in doing so it removes noise and flattens out the color to create the brushstroke effect; it also perserves edges by having each fragment make a selection between either outside or inside of the edge.</p>
+      <p>My implementation uses circular(pie shaped) kernels with adjustable radius and sector count. Unlike typical Kuwahara implementations I did not use a weighting function as they seem to perserve edges too well and loose the effect I wanted. The angle of the kernel can be randomized to create an animated effect.</p>
+    </div>
+    <div class="media-stack">
+      <figure>
+        <img src="assets/games/AdmistScene.png" alt="Scene view with shader">
+        <figcaption>Scene view with shader</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/games/AdmistSceneNoShader.png" alt="Scene view without shader">
+        <figcaption>Scene view without shader</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Depth of Field</h3>
+  <p>I found that a smaller radius and higher sector count creates a more defined image, and the opposite creates a more fuzzy one. With that I created a depth of field mask, adjust the said values accordingly, and animated the mask's target distance at runtime.</p>
+  <figure>
+    <video class="centered" autoplay loop muted playsinline preload="auto" aria-label="Depth of field shader debugging animation">
+      <source src="assets/games/AdmistDebug-loop.mp4" type="video/mp4">
+    </video>
+  </figure>
+</section>
